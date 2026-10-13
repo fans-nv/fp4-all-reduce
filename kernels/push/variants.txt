@@ -1,0 +1,5 @@
+# name | source (relative to repo root) | extra nvcc flags   (L2/L2q and L4/L4q are the same objects; the input format is chosen at run time by --input)
+L2   | kernels/push/tp2_l2.cu | -DLAMPORT_V2=1
+L2q  | kernels/push/tp2_l2.cu | -DLAMPORT_V2=1
+L4   | kernels/push/tp4_l4.cu |
+L4q  | kernels/push/tp4_l4.cu |

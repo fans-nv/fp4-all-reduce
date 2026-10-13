@@ -1,0 +1,8 @@
+build/
+scripts/cluster.env
+__pycache__/
+*.o
+*.ncu-rep
+*.ncu-repz
+*.nsys-rep
+*.jsonl

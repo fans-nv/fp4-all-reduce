@@ -1,0 +1,1 @@
+drv_smoke NODE0 2,3 300 -- --tp 2 --variant r1 --rows 1024 --algo 1 --iters 20 --warmup 5 --graph 0

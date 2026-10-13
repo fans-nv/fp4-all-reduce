@@ -1,0 +1,28 @@
+# TP4 (whole node) quiet window
+tp4_def_all_reduce_bf16 | | all_reduce_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+tp4_def_sendrecv_bf16 | | sendrecv_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+tp4_def_all_gather_bf16 | | all_gather_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+tp4_def_reduce_scatter_bf16 | | reduce_scatter_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+tp4_def_alltoall_bf16 | | alltoall_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+tp4_Ring_Simple_ch64_all_reduce_bf16 | NCCL_ALGO=Ring NCCL_PROTO=Simple NCCL_MIN_NCHANNELS=64 NCCL_MAX_NCHANNELS=64 | all_reduce_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+tp4_Ring_Simple_ch64_all_gather_bf16 | NCCL_ALGO=Ring NCCL_PROTO=Simple NCCL_MIN_NCHANNELS=64 NCCL_MAX_NCHANNELS=64 | all_gather_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+tp4_Ring_Simple_ch64_reduce_scatter_bf16 | NCCL_ALGO=Ring NCCL_PROTO=Simple NCCL_MIN_NCHANNELS=64 NCCL_MAX_NCHANNELS=64 | reduce_scatter_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+tp4_Ring_LL128_ch64_all_reduce_bf16 | NCCL_ALGO=Ring NCCL_PROTO=LL128 NCCL_MIN_NCHANNELS=64 NCCL_MAX_NCHANNELS=64 | all_reduce_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+tp4_Ring_LL128_ch64_all_gather_bf16 | NCCL_ALGO=Ring NCCL_PROTO=LL128 NCCL_MIN_NCHANNELS=64 NCCL_MAX_NCHANNELS=64 | all_gather_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+tp4_Ring_LL128_ch64_reduce_scatter_bf16 | NCCL_ALGO=Ring NCCL_PROTO=LL128 NCCL_MIN_NCHANNELS=64 NCCL_MAX_NCHANNELS=64 | reduce_scatter_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+tp4_NVLS_Simple_ch64_all_reduce_bf16 | NCCL_ALGO=NVLS NCCL_PROTO=Simple NCCL_MIN_NCHANNELS=64 NCCL_MAX_NCHANNELS=64 | all_reduce_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+tp4_NVLS_Simple_ch64_all_gather_bf16 | NCCL_ALGO=NVLS NCCL_PROTO=Simple NCCL_MIN_NCHANNELS=64 NCCL_MAX_NCHANNELS=64 | all_gather_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+tp4_NVLS_Simple_ch64_reduce_scatter_bf16 | NCCL_ALGO=NVLS NCCL_PROTO=Simple NCCL_MIN_NCHANNELS=64 NCCL_MAX_NCHANNELS=64 | reduce_scatter_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+tp4_Tree_Simple_ch64_all_reduce_bf16 | NCCL_ALGO=Tree NCCL_PROTO=Simple NCCL_MIN_NCHANNELS=64 NCCL_MAX_NCHANNELS=64 | all_reduce_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+tp4_Tree_Simple_ch64_all_gather_bf16 | NCCL_ALGO=Tree NCCL_PROTO=Simple NCCL_MIN_NCHANNELS=64 NCCL_MAX_NCHANNELS=64 | all_gather_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+tp4_Tree_Simple_ch64_reduce_scatter_bf16 | NCCL_ALGO=Tree NCCL_PROTO=Simple NCCL_MIN_NCHANNELS=64 NCCL_MAX_NCHANNELS=64 | reduce_scatter_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+tp4_Tree_LL128_ch64_all_reduce_bf16 | NCCL_ALGO=Tree NCCL_PROTO=LL128 NCCL_MIN_NCHANNELS=64 NCCL_MAX_NCHANNELS=64 | all_reduce_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+tp4_Tree_LL128_ch64_all_gather_bf16 | NCCL_ALGO=Tree NCCL_PROTO=LL128 NCCL_MIN_NCHANNELS=64 NCCL_MAX_NCHANNELS=64 | all_gather_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+tp4_Tree_LL128_ch64_reduce_scatter_bf16 | NCCL_ALGO=Tree NCCL_PROTO=LL128 NCCL_MIN_NCHANNELS=64 NCCL_MAX_NCHANNELS=64 | reduce_scatter_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+tp4_NVLS_def_all_reduce_bf16 | NCCL_ALGO=NVLS | all_reduce_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+tp4_NVLS_ch32_all_reduce_bf16 | NCCL_ALGO=NVLS NCCL_MIN_NCHANNELS=32 NCCL_MAX_NCHANNELS=32 | all_reduce_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+tp4_R2_all_reduce_bf16 | | all_reduce_perf -d bfloat16 -R 2 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+tp4_R2_all_gather_bf16 | | all_gather_perf -d bfloat16 -R 2 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+tp4_R2_reduce_scatter_bf16 | | reduce_scatter_perf -d bfloat16 -R 2 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+tp4_R2_alltoall_bf16 | | alltoall_perf -d bfloat16 -R 2 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+tp4_Simple_ch64_alltoall_bf16 | NCCL_PROTO=Simple NCCL_MIN_NCHANNELS=64 NCCL_MAX_NCHANNELS=64 | alltoall_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0

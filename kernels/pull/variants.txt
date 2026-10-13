@@ -1,0 +1,6 @@
+# name | source (relative to repo root) | extra nvcc flags   (pull family: slower than push on VR200 at every tier; kept as the measured comparison)
+P    | kernels/pull/tp2_p.cu |
+Pq   | kernels/pull/tp2_pq.cu |
+P4   | kernels/pull/tp4_p4.cu |
+P4t  | kernels/pull/tp4_p4.cu | -DAG_PUSH=2
+P4q  | kernels/pull/tp4_p4q.cu |

@@ -1,0 +1,8 @@
+# Control: r1 / r1c4 check + FUSED/XPORT/COMPUTE/empty, eager + graph x10, one- and two-shot, plus tuned BF16 sweep.
+r1_tp2   NODE0 0,1     840 -- --tp 2 --variant r1 --rows 1024,2048,4096,8192,16384 --algo 1,2 --check --mode fused,xport,compute,empty --graph 0,10
+r1_tp4   NODE0 0,1,2,3 840 -- --tp 4 --variant r1,r1c4 --rows 1024,2048,4096,8192,16384 --algo 1,2 --check --mode fused,xport,compute,empty --graph 0,10
+r1_tp4_lag4 NODE0 0,1,2,3 600 -- --tp 4 --variant r1 --rows 8192,16384 --algo 2 --tune 4,0,0,0 --mode fused,xport,compute,empty --graph 0,10
+bf16_tp2 NODE0 0,1     600 -- --tp 2 --variant none --bf16 --bf16-protos LL,LL128,Simple --rows 1024,2048,4096,8192,16384 --graph 0,10
+bf16_tp4 NODE0 0,1,2,3 600 -- --tp 4 --variant none --bf16 --bf16-protos LL,LL128,Simple --rows 1024,2048,4096,8192,16384 --graph 0,10
+bf16_tp2_def NODE0 0,1 600 NCCL_DEFAULTS=1 -- --tp 2 --variant none --bf16 --bf16-protos default --rows 1024,2048,4096,8192,16384 --graph 0,10
+bf16_tp4_def NODE0 0,1,2,3 600 NCCL_DEFAULTS=1 -- --tp 4 --variant none --bf16 --bf16-protos default --rows 1024,2048,4096,8192,16384 --graph 0,10

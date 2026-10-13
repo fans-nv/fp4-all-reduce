@@ -1,0 +1,4 @@
+# Diagnostics only (not linked by default; FP4AR_DIAG=1 appends this file). Same source as P, one define each; all were in frozen build q4.
+P_enc0    | kernels/pull/tp2_p.cu | -DENC_FAST=0
+P_flagsys | kernels/pull/tp2_p.cu | -DPROTO_LAMP=0
+P_gpudiag | kernels/pull/tp2_p.cu | -DPROTO_LAMP=0 -DPUB_GPU=1

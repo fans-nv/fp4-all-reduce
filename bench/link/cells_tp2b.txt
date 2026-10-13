@@ -1,0 +1,30 @@
+# TP2 registration / symmetric / device impl / nthreads / NVLS
+R1_all_reduce_bf16 | | all_reduce_perf -d bfloat16 -R 1 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+R1_sendrecv_bf16 | | sendrecv_perf -d bfloat16 -R 1 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+R1_all_gather_bf16 | | all_gather_perf -d bfloat16 -R 1 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+R1_reduce_scatter_bf16 | | reduce_scatter_perf -d bfloat16 -R 1 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+R1_alltoall_bf16 | | alltoall_perf -d bfloat16 -R 1 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+R2_all_reduce_bf16 | | all_reduce_perf -d bfloat16 -R 2 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+R2_sendrecv_bf16 | | sendrecv_perf -d bfloat16 -R 2 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+R2_all_gather_bf16 | | all_gather_perf -d bfloat16 -R 2 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+R2_reduce_scatter_bf16 | | reduce_scatter_perf -d bfloat16 -R 2 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+R2_alltoall_bf16 | | alltoall_perf -d bfloat16 -R 2 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+R1_Ring_Simple_ch64_all_reduce_bf16 | NCCL_ALGO=Ring NCCL_PROTO=Simple NCCL_MIN_NCHANNELS=64 NCCL_MAX_NCHANNELS=64 | all_reduce_perf -d bfloat16 -R 1 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+R2_Ring_Simple_ch64_all_reduce_bf16 | NCCL_ALGO=Ring NCCL_PROTO=Simple NCCL_MIN_NCHANNELS=64 NCCL_MAX_NCHANNELS=64 | all_reduce_perf -d bfloat16 -R 2 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+R2_D1_all_reduce_bf16 | | all_reduce_perf -d bfloat16 -R 2 -D 1 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+R2_D1_alltoall_bf16 | | alltoall_perf -d bfloat16 -R 2 -D 1 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+R2_D1V64_alltoall_bf16 | | alltoall_perf -d bfloat16 -R 2 -D 1 -V 64 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+R2_H1_sendrecv_bf16 | | sendrecv_perf -d bfloat16 -R 2 -H 1 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+NVLS_all_reduce_bf16 | NCCL_ALGO=NVLS | all_reduce_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+nt256_Ring_Simple_ch64_all_reduce_bf16 | NCCL_ALGO=Ring NCCL_PROTO=Simple NCCL_MIN_NCHANNELS=64 NCCL_MAX_NCHANNELS=64 NCCL_NTHREADS=256 | all_reduce_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+nt512_Ring_Simple_ch64_all_reduce_bf16 | NCCL_ALGO=Ring NCCL_PROTO=Simple NCCL_MIN_NCHANNELS=64 NCCL_MAX_NCHANNELS=64 NCCL_NTHREADS=512 | all_reduce_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+nt640_Ring_Simple_ch64_all_reduce_bf16 | NCCL_ALGO=Ring NCCL_PROTO=Simple NCCL_MIN_NCHANNELS=64 NCCL_MAX_NCHANNELS=64 NCCL_NTHREADS=640 | all_reduce_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+nt256_Simple_ch64_sendrecv_bf16 | NCCL_PROTO=Simple NCCL_MIN_NCHANNELS=64 NCCL_MAX_NCHANNELS=64 NCCL_NTHREADS=256 | sendrecv_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+nt512_Simple_ch64_sendrecv_bf16 | NCCL_PROTO=Simple NCCL_MIN_NCHANNELS=64 NCCL_MAX_NCHANNELS=64 NCCL_NTHREADS=512 | sendrecv_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+nt640_Simple_ch64_sendrecv_bf16 | NCCL_PROTO=Simple NCCL_MIN_NCHANNELS=64 NCCL_MAX_NCHANNELS=64 NCCL_NTHREADS=640 | sendrecv_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+Ring_Simple_ch16_all_reduce_bf16 | NCCL_ALGO=Ring NCCL_PROTO=Simple NCCL_MIN_NCHANNELS=16 NCCL_MAX_NCHANNELS=16 | all_reduce_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+Ring_Simple_ch128_all_reduce_bf16 | NCCL_ALGO=Ring NCCL_PROTO=Simple NCCL_MIN_NCHANNELS=128 NCCL_MAX_NCHANNELS=128 | all_reduce_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+Simple_ch16_sendrecv_bf16 | NCCL_PROTO=Simple NCCL_MIN_NCHANNELS=16 NCCL_MAX_NCHANNELS=16 | sendrecv_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+Simple_ch128_sendrecv_bf16 | NCCL_PROTO=Simple NCCL_MIN_NCHANNELS=128 NCCL_MAX_NCHANNELS=128 | sendrecv_perf -d bfloat16 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+ce_alltoall | NCCL_CTA_POLICY=2 | alltoall_perf -d bfloat16 -x 2 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0
+ce_all_gather | | all_gather_perf -d bfloat16 -x 2 -R 2 -b 1M -e 8G -f 2 -n 20 -w 5 -c 0

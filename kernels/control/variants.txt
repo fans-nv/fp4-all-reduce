@@ -1,0 +1,2 @@
+# name | source (relative to repo root) | extra nvcc flags   (round-1 control)
+r1   | kernels/control/r1.cu | -DMINB=3 -DR1_NAME=r1
